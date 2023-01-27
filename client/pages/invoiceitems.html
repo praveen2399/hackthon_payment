@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Supplier Invoices</title>
+    <link rel="stylesheet" href="usb.css" />
+    <link rel="stylesheet" href="/northwind.css" />
+    <!-- <meta http-equiv="refresh" content="5"/> 5 sec interval -->
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+      html, body {
+      min-height: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      }
+    .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color: #333;
+      }
+    .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #333;
+      color: #333;
+      }
+    .form{
+        margin: 0 left;
+        width: 600px;
+        margin-left: 310px;
+    }
+    .item {
+      margin: 0px auto;
+      }
+    .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+    button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #444;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+
+      }
+    button:hover {
+      background: #666;
+      }
+    </style>
+</head>
+<body>
+<script type="module" src="/identity/userPanel.js"></script>
+<top-nav-panel></top-nav-panel>
+
+<table id="inv-table" class="inv-table">
+    <thead>
+        <tr>
+            <th>Items</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+            <th>Total Cost</th>
+        </tr>
+    </thead>
+
+
+</tbody>
+</table>
+<div class="form">
+<div class="item">            
+    <p>Payment Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+        &nbsp;<span style="color: blue"><label id="txt_status"></label> </label></span></p>
+</div>
+
+<div class="item">
+<p>Payment Confirmation ID : &nbsp;<span style="color: blue"><label id="txt_btid"></label></span></p>
+</div>
+<br><br>
+    <div id="pay-panel">
+</div>
+</div>
+
+<script type="module" src="/components/navigation.js"></script>
+<script type="module" src="invoiceitems.js"></script>
+
+<script>
+
+
+function pay(invid,invdt,vend_nm,tamt,invst,bank_trid){
+    var details = '';
+    details += 'tid=' +invid;
+    details += '&invdt=' +invdt;
+    details += '&vendor=' +vend_nm;
+    details += '&amt=' +tamt;
+    details += '&invst=' +invst;
+    location.replace('/pages/confirmpage_v1.html?'+details);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "56b691e8-a999-46fd-9606-940cafa86b8c",
+		"name": "Elavon Payment APIs - Asynchronous",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "elevon - generate payment link",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Hackathon Special Sale\",\r\n  \"total\": {\r\n    \"amount\": \"10\",\r\n    \"currencyCode\": \"EUR\"\r\n  },\r\n  \"expiresAt\": \"2023-06-30T23:59:59.123Z\",\r\n  \"customReference\": \"Hackathon Participant Shopper\",\r\n  \"customFields\": {\r\n    \"merchantField1\": \"Merchant Value 1\"\r\n  }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://uat.api.converge.eu.elavonaws.com/payment-links",
+					"protocol": "https",
+					"host": [
+						"uat",
+						"api",
+						"converge",
+						"eu",
+						"elavonaws",
+						"com"
+					],
+					"path": [
+						"payment-links"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.15/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.15",
+  "version": "1.2.0",
+  "id": "b4f5290e-61fe-496b-b6bc-6837cec5bfc1",
+  "packageName": "JC Builders",
+  "developer": {
+    "name": "JC Builders",
+    "websiteUrl": "https://920c-108-53-76-115.ngrok.io/",
+    "privacyUrl": "https://920c-108-53-76-115.ngrok.io/privacy.html",
+    "termsOfUseUrl": "https://920c-108-53-76-115.ngrok.io/termsofuse.html"
+  },
+  "icons": {
+      "color": "pfalcon.jpg",
+      "outline": "pfalcon.jpg"
+  },
+  "name": {
+    "short": "JC Builders Pymt Svcs",
+    "full": "RTP/RFP, ACH, Check Payable & Receivables System - Powered by U.S. Bank's Open Banking APIs."
+  },
+  "description": {
+    "short": "Sample Real-time Payments app using Open Banking APIs.",
+    "full": "Simple app to demonstrate deploying real-time payment using Microsoft Teams. It can be used as a Virtual Pos & Vendor Invoice Payment Systems"
+  },
+  "accentColor": "#1e0692",
+
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://920c-108-53-76-115.ngrok.io/teamstab/configure",
+      "scopes": [
+        "team",
+        "groupchat"
+      ],
+      "canUpdateConfiguration": true,
+      "context": [
+        "channelTab",
+        "privateChatTab",
+        "meetingChatTab",
+        "meetingDetailsTab",
+        "meetingSidePanel",
+        "meetingStage"
+      ]
+    }
+  ],
+
+
+  "staticTabs": [
+    {
+      "entityId": "Index",
+      "name": "JC Builders Home",
+      "contentUrl": "https://920c-108-53-76-115.ngrok.io/index.html",
+      "websiteUrl": "https://920c-108-53-76-115.ngrok.io/index.html",
+      "scopes": [
+        "personal",
+        "team"
+      ]
+    },
+    {
+      "entityId": "rtpTxn",
+      "name": "Real-time Payments",
+      "contentUrl": "https://920c-108-53-76-115.ngrok.io/pages/invoiceitems.html",
+      "websiteUrl": "https://920c-108-53-76-115.ngrok.io/pages/invoiceitems.html",
+      "scopes": [
+        "personal",
+        "team"
+      ]
+    },
+    {
+      "entityId": "GenInv",
+      "name": "Generate Invoice",
+      "contentUrl": "https://920c-108-53-76-115.ngrok.io/pages/invoice.html",
+      "websiteUrl": "https://920c-108-53-76-115.ngrok.io/pages/invoice.html",
+      "scopes": [
+        "personal"
+      ]
+    }
+
+  ],
+  "showLoadingIndicator": false,
+  "permissions": [
+      "identity",
+      "messageTeamMembers"
+  ],
+  "validDomains": [
+      "920c-108-53-76-115.ngrok.io"
+  ]
+}

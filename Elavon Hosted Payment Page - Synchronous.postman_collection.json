@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "1c329840-8208-4a3e-8596-5058ce6c60bf",
+		"name": "Elavon Hosted Payment Page - Synchronous",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 1: Create Order",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"total\": {\r\n    \"amount\": \"1.00\",\r\n    \"currencyCode\": \"EUR\"\r\n  },\r\n  \"description\": \"parts\",\r\n  \"items\": [\r\n    {\r\n      \"total\": {\r\n        \"amount\": \"1.00\",\r\n        \"currencyCode\": \"EUR\"\r\n      },\r\n      \"description\": \"widget\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://uat.api.converge.eu.elavonaws.com/orders",
+					"protocol": "https",
+					"host": [
+						"uat",
+						"api",
+						"converge",
+						"eu",
+						"elavonaws",
+						"com"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 2: Create Payment Session",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"order\": \"https://uat.api.converge.eu.elavonaws.com/orders/mqfr2mj7jctxfkctyxjytrfwj3d2\",\r\n\"returnUrl\": null,\r\n\"cancelUrl\": null,\r\n\"hppType\": \"lightbox\",\r\n\"originUrl\": \"http://localhost:3000\",\r\n\"doCreateTransaction\": true\r\n}"
+				},
+				"url": {
+					"raw": "https://uat.api.converge.eu.elavonaws.com/payment-sessions",
+					"protocol": "https",
+					"host": [
+						"uat",
+						"api",
+						"converge",
+						"eu",
+						"elavonaws",
+						"com"
+					],
+					"path": [
+						"payment-sessions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Supolier Invoices</title>
+    <link rel="stylesheet" href="usb.css" />
+    <link rel="stylesheet" href="/northwind.css" />
+    <!-- <meta http-equiv="refresh" content="5"/> 5 sec interval -->
+    <link rel="icon" href="data:;base64,="> <!-- Suppress favicon error -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+<script type="module" src="/identity/userPanel.js"></script>
+<top-nav-panel></top-nav-panel>
+
+<table id="inv-table" class="inv-table">
+    <thead>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Vendor Invoice No.</th>
+            <th>Invoice Date</th>
+            <th>Vendor</th>
+            <th>Amount</th>
+            <th>Invoice Status</th>
+            <th>Bank Transaction ID</th>
+            <th>Pay</th>
+        </tr>
+    </thead>
+
+
+</tbody>
+</table>
+
+<script type="module" src="/components/navigation.js"></script>
+<script type="module" src="invoice.js"></script>
+
+<script>
+
+
+function pay(invid,vnd_invno,invdt,vnd,amt,invst,btid){
+    // if ((btid) != ''){
+    //     alert ("Already Paid");
+    //     $("#btn-pay").disabled = true;
+    //     return;
+    // } else {
+    //     $("#btn-pay").disabled = false;
+    // }
+
+    var details = '';
+    details += 'tid=' +invid;
+    details += '&invno=' +vnd_invno;
+    details += '&invdt=' +invdt;
+    details += '&vendor=' +vnd;
+    details += '&amt=' +amt;
+    details += '&invst=' +invst;
+    location.replace('/pages/confirmpage.html?'+details);
+}
+
+
+// $(document).ready(function () {
+//       $('#btid').click(function () {
+//         var details = '';
+
+//         // details += 'sno=' + $(this).find('td:first-child').html();
+//         details += 'tid=' + $(this).find('td:nth-first-child').html();
+//         details += '&invno=' + $(this).find('td:nth-child(2)').html();
+//         details += '&invdt=' + $(this).find('td:nth-child(3)').html();
+//         details += '&vendor=' + $(this).find('td:nth-child(4)').html();
+//         details += '&amt=' + $(this).find('td:nth-child(5)').html();
+//         details += '&invst=' + $(this).find('td:nth-child(6)').html();
+        
+//         // alert(details);
+//         location.replace('/pages/confirmpage.html?'+details);
+//         });
+//     });
+</script>
+</body>
+</html>
